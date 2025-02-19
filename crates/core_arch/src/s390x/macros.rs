@@ -299,7 +299,7 @@ macro_rules! t_u {
         vector_unsigned_int
     };
     (vector_signed_long_long) => {
-        vector_signed_long_long
+        vector_unsigned_long_long
     };
     (vector_float) => {
         vector_unsigned_int
