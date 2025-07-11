@@ -27,6 +27,13 @@ pub struct ArmArchitectureTest {
     cli_options: ProcessedCli,
 }
 
+fn chunk_info(intrinsic_count: usize) -> (usize, usize) {
+    let available_parallelism = std::thread::available_parallelism().unwrap().get();
+    let chunk_size = intrinsic_count.div_ceil(Ord::min(available_parallelism, intrinsic_count));
+
+    (chunk_size, intrinsic_count.div_ceil(chunk_size))
+}
+
 impl SupportedArchitectureTest for ArmArchitectureTest {
     fn create(cli_options: ProcessedCli) -> Box<Self> {
         let a32 = cli_options.target.contains("v7");
@@ -60,9 +67,7 @@ impl SupportedArchitectureTest for ArmArchitectureTest {
         let c_target = "aarch64";
         let platform_headers = &["arm_neon.h", "arm_acle.h", "arm_fp16.h"];
 
-        let available_parallelism = std::thread::available_parallelism().unwrap().get();
-        let chunk_count = Ord::min(available_parallelism, self.intrinsics.len());
-        let chunk_size = self.intrinsics.len().div_ceil(chunk_count);
+        let (chunk_size, chunk_count) = chunk_info(self.intrinsics.len());
 
         let cpp_compiler = compile::configure_cpp_compiler(&self.cli_options).unwrap();
 
@@ -139,10 +144,7 @@ impl SupportedArchitectureTest for ArmArchitectureTest {
             "aarch64"
         };
 
-        // Experimentally, keeping 2 cores free is fastest for cargo.
-        let available_parallelism = std::thread::available_parallelism().unwrap().get();
-        let chunk_count = Ord::min(available_parallelism, self.intrinsics.len());
-        let chunk_size = self.intrinsics.len().div_ceil(chunk_count);
+        let (chunk_size, chunk_count) = chunk_info(self.intrinsics.len());
 
         let mut cargo = File::create("rust_programs/Cargo.toml").unwrap();
         write_bin_cargo_toml(&mut cargo, chunk_count).unwrap();
