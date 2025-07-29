@@ -87,7 +87,7 @@ macro_rules! types {
         #[allow(non_camel_case_types)]
         #[repr(simd)]
         #[allow(clippy::missing_inline_in_public_items)]
-        pub struct $name($v [$elem_type; $len]);
+        pub struct $name { do_not_field_project: [$elem_type; $len] }
 
         impl $name {
             /// Using `my_simd([x; N])` seemingly fails tests,
@@ -103,7 +103,16 @@ macro_rules! types {
                 unsafe { simd_shuffle!(one, one, [0; $len]) }
             }
 
+            /// Constructs a vector from an array of the same elements and length
+            #[inline]
+            $v const fn from_array(array: [$elem_type; $len]) -> Self {
+                // Projecting into SIMD is banned, but this is technically an
+                // `Rvalue::Aggregate`, which is not a projection.
+                $name { do_not_field_project: array }
+            }
+
             /// Returns an array reference containing the entire SIMD vector.
+            #[inline]
             $v const fn as_array(&self) -> &[$elem_type; $len] {
                 // SAFETY: this type is just an overaligned `[T; N]` with
                 // potential padding at the end, so pointer casting to a
