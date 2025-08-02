@@ -1,4 +1,4 @@
-use cli::ProcessedCli;
+use cli::Config;
 
 pub mod argument;
 pub mod cli;
@@ -15,7 +15,7 @@ pub mod values;
 /// Architectures must support this trait
 /// to be successfully tested.
 pub trait SupportedArchitectureTest {
-    fn create(cli_options: ProcessedCli) -> Box<Self>
+    fn create(cli_options: Config) -> Box<Self>
     where
         Self: Sized;
     fn build_c_file(&self) -> bool;

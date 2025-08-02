@@ -11,7 +11,7 @@ use rayon::prelude::*;
 
 use crate::arm::config::POLY128_OSTREAM_DEF;
 use crate::common::SupportedArchitectureTest;
-use crate::common::cli::ProcessedCli;
+use crate::common::cli::{Config, Mode};
 use crate::common::compare::compare_outputs;
 use crate::common::gen_c::{write_main_cpp, write_mod_cpp};
 use crate::common::gen_rust::{
@@ -25,7 +25,7 @@ use json_parser::get_neon_intrinsics;
 
 pub struct ArmArchitectureTest {
     intrinsics: Vec<Intrinsic<ArmIntrinsicType>>,
-    cli_options: ProcessedCli,
+    cli_options: Config,
 }
 
 fn chunk_info(intrinsic_count: usize) -> (usize, usize) {
@@ -36,7 +36,7 @@ fn chunk_info(intrinsic_count: usize) -> (usize, usize) {
 }
 
 impl SupportedArchitectureTest for ArmArchitectureTest {
-    fn create(cli_options: ProcessedCli) -> Box<Self> {
+    fn create(cli_options: Config) -> Box<Self> {
         let a32 = cli_options.target.contains("v7");
         let mut intrinsics = get_neon_intrinsics(&cli_options.filename, &cli_options.target)
             .expect("Error parsing input file");
@@ -154,8 +154,6 @@ impl SupportedArchitectureTest for ArmArchitectureTest {
         .unwrap();
 
         let target = &self.cli_options.target;
-        let toolchain = self.cli_options.toolchain.as_deref();
-        let linker = self.cli_options.linker.as_deref();
 
         let notice = &build_notices("// ");
         self.intrinsics
@@ -183,24 +181,27 @@ impl SupportedArchitectureTest for ArmArchitectureTest {
             .collect::<Result<(), std::io::Error>>()
             .unwrap();
 
-        compile_rust_programs(toolchain, target, linker)
+        match &self.cli_options.mode {
+            Mode::BuildAndRun {
+                rust_toolchain,
+                linker,
+                ..
+            } => compile_rust_programs(rust_toolchain, target, linker.as_deref()),
+            Mode::GenerateOnly => true,
+        }
     }
 
     fn compare_outputs(&self) -> bool {
-        if self.cli_options.toolchain.is_some() {
-            let intrinsics_name_list = self
-                .intrinsics
-                .iter()
-                .map(|i| i.name.clone())
-                .collect::<Vec<_>>();
-
-            compare_outputs(
-                &intrinsics_name_list,
-                &self.cli_options.runner,
-                &self.cli_options.target,
-            )
-        } else {
-            true
+        match &self.cli_options.mode {
+            Mode::BuildAndRun { runner, .. } => {
+                let intrinsics_name_list = self
+                    .intrinsics
+                    .iter()
+                    .map(|i| i.name.clone())
+                    .collect::<Vec<_>>();
+                compare_outputs(&intrinsics_name_list, &runner, &self.cli_options.target)
+            }
+            Mode::GenerateOnly => true,
         }
     }
 }

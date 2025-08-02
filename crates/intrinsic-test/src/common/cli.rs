@@ -29,9 +29,9 @@ pub struct Cli {
 
     /// The C++ compiler to use for compiling the c++ code
     #[arg(long, default_value_t = String::from("clang++"))]
-    pub cppcompiler: String,
+    pub cpp_compiler: String,
 
-    /// Run the C programs under emulation with this command
+    /// Run the programs under emulation with this command
     #[arg(long)]
     pub runner: Option<String>,
 
@@ -56,18 +56,25 @@ pub struct Cli {
     pub cxx_toolchain_dir: Option<String>,
 }
 
-pub struct ProcessedCli {
+pub enum Mode {
+    BuildAndRun {
+        cpp_compiler: String,
+        toolchain: String,
+        runner: String,
+        linker: Option<String>,
+        cxx_toolchain_dir: Option<String>,
+    },
+    GenerateOnly,
+}
+
+pub struct Config {
     pub filename: PathBuf,
-    pub toolchain: Option<String>,
-    pub cpp_compiler: Option<String>,
-    pub runner: String,
+    pub mode: Mode,
     pub target: String,
-    pub linker: Option<String>,
-    pub cxx_toolchain_dir: Option<String>,
     pub skip: Vec<String>,
 }
 
-impl ProcessedCli {
+impl Config {
     pub fn new(cli_options: Cli) -> Self {
         let filename = cli_options.input;
         let runner = cli_options.runner.unwrap_or_default();
@@ -86,28 +93,26 @@ impl ProcessedCli {
             Default::default()
         };
 
-        let (toolchain, cpp_compiler) = if cli_options.generate_only {
-            (None, None)
+        let mode = if cli_options.generate_only {
+            Mode::GenerateOnly
         } else {
-            (
-                Some(
-                    cli_options
-                        .toolchain
-                        .map_or_else(String::new, |t| format!("+{t}")),
-                ),
-                Some(cli_options.cppcompiler),
-            )
+            Mode::BuildAndRun {
+                cpp_compiler: cli_options.cpp_compiler,
+                toolchain: match cli_options.toolchain {
+                    None => String::new(),
+                    Some(toolchain) => format!("+{toolchain}"),
+                },
+                runner,
+                linker,
+                cxx_toolchain_dir,
+            }
         };
 
         Self {
-            toolchain,
-            cpp_compiler,
-            runner,
             target,
-            linker,
-            cxx_toolchain_dir,
             skip,
             filename,
+            mode,
         }
     }
 }

@@ -1,8 +1,15 @@
-use crate::common::cli::ProcessedCli;
+use crate::common::cli::{Config, Mode};
 use crate::common::compile_c::{CompilationCommandBuilder, CppCompilation};
 
-pub fn build_cpp_compilation(config: &ProcessedCli) -> Option<CppCompilation> {
-    let cpp_compiler = config.cpp_compiler.as_ref()?;
+pub fn build_cpp_compilation(config: &Config) -> Option<CppCompilation> {
+    let Mode::BuildAndRun {
+        cpp_compiler,
+        cxx_toolchain_dir,
+        ..
+    } = &config.mode
+    else {
+        return None;
+    };
 
     // -ffp-contract=off emulates Rust's approach of not fusing separate mul-add operations
     let mut command = CompilationCommandBuilder::new()
@@ -10,7 +17,7 @@ pub fn build_cpp_compilation(config: &ProcessedCli) -> Option<CppCompilation> {
         .set_compiler(cpp_compiler)
         .set_target(&config.target)
         .set_opt_level("2")
-        .set_cxx_toolchain_dir(config.cxx_toolchain_dir.as_deref())
+        .set_cxx_toolchain_dir(cxx_toolchain_dir.as_deref())
         .set_project_root("c_programs")
         .add_extra_flags(vec!["-ffp-contract=off", "-Wno-narrowing"]);
 
@@ -25,7 +32,7 @@ pub fn build_cpp_compilation(config: &ProcessedCli) -> Option<CppCompilation> {
     let mut cpp_compiler = command.into_cpp_compilation();
 
     if config.target.contains("aarch64_be") {
-        let Some(ref cxx_toolchain_dir) = config.cxx_toolchain_dir else {
+        let Some(cxx_toolchain_dir) = cxx_toolchain_dir else {
             panic!(
                 "target `{}` must specify `cxx_toolchain_dir`",
                 config.target

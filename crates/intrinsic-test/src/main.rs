@@ -6,12 +6,12 @@ mod common;
 
 use arm::ArmArchitectureTest;
 use common::SupportedArchitectureTest;
-use common::cli::{Cli, ProcessedCli};
+use common::cli::{Cli, Config};
 
 fn main() {
     pretty_env_logger::init();
     let args: Cli = clap::Parser::parse();
-    let processed_cli_options = ProcessedCli::new(args);
+    let processed_cli_options = Config::new(args);
 
     let test_environment_result: Option<Box<dyn SupportedArchitectureTest>> =
         match processed_cli_options.target.as_str() {
