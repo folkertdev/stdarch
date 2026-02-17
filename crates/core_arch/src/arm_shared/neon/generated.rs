@@ -10178,7 +10178,9 @@ pub fn vdupq_lane_f16<const N: i32>(a: float16x4_t) -> float16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10414,7 +10416,9 @@ pub fn vdupq_lane_p16<const N: i32>(a: poly16x4_t) -> poly16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10443,7 +10447,9 @@ pub fn vdupq_lane_s16<const N: i32>(a: int16x4_t) -> int16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10472,7 +10478,9 @@ pub fn vdupq_lane_u16<const N: i32>(a: uint16x4_t) -> uint16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10501,7 +10509,9 @@ pub fn vdup_lane_p8<const N: i32>(a: poly8x8_t) -> poly8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10530,7 +10540,9 @@ pub fn vdup_lane_s8<const N: i32>(a: int8x8_t) -> int8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10559,7 +10571,9 @@ pub fn vdup_lane_u8<const N: i32>(a: uint8x8_t) -> uint8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10757,7 +10771,9 @@ pub fn vdupq_laneq_f16<const N: i32>(a: float16x8_t) -> float16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -10993,7 +11009,9 @@ pub fn vdupq_laneq_p16<const N: i32>(a: poly16x8_t) -> poly16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -11022,7 +11040,9 @@ pub fn vdupq_laneq_s16<const N: i32>(a: int16x8_t) -> int16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -11051,7 +11071,9 @@ pub fn vdupq_laneq_u16<const N: i32>(a: uint16x8_t) -> uint16x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -11080,7 +11102,9 @@ pub fn vdup_laneq_p8<const N: i32>(a: poly8x16_t) -> poly8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -11109,7 +11133,9 @@ pub fn vdup_laneq_s8<const N: i32>(a: int8x16_t) -> int8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -11138,7 +11164,9 @@ pub fn vdup_laneq_u8<const N: i32>(a: uint8x16_t) -> uint8x8_t {
         simd_shuffle!(
             a,
             a,
-            [N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32]
+            [
+                N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32, N as u32
+            ]
         )
     }
 }
@@ -12974,37 +13002,51 @@ pub fn vextq_s8<const N: i32>(a: int8x16_t, b: int8x16_t) -> int8x16_t {
             9 => simd_shuffle!(
                 a,
                 b,
-                [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+                [
+                    9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+                ]
             ),
             10 => simd_shuffle!(
                 a,
                 b,
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+                [
+                    10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
+                ]
             ),
             11 => simd_shuffle!(
                 a,
                 b,
-                [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+                [
+                    11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
+                ]
             ),
             12 => simd_shuffle!(
                 a,
                 b,
-                [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+                [
+                    12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+                ]
             ),
             13 => simd_shuffle!(
                 a,
                 b,
-                [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+                [
+                    13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28
+                ]
             ),
             14 => simd_shuffle!(
                 a,
                 b,
-                [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+                [
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+                ]
             ),
             15 => simd_shuffle!(
                 a,
                 b,
-                [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+                [
+                    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+                ]
             ),
             _ => unreachable_unchecked(),
         }
@@ -13077,37 +13119,51 @@ pub fn vextq_u8<const N: i32>(a: uint8x16_t, b: uint8x16_t) -> uint8x16_t {
             9 => simd_shuffle!(
                 a,
                 b,
-                [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+                [
+                    9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+                ]
             ),
             10 => simd_shuffle!(
                 a,
                 b,
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+                [
+                    10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
+                ]
             ),
             11 => simd_shuffle!(
                 a,
                 b,
-                [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+                [
+                    11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
+                ]
             ),
             12 => simd_shuffle!(
                 a,
                 b,
-                [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+                [
+                    12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+                ]
             ),
             13 => simd_shuffle!(
                 a,
                 b,
-                [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+                [
+                    13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28
+                ]
             ),
             14 => simd_shuffle!(
                 a,
                 b,
-                [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+                [
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+                ]
             ),
             15 => simd_shuffle!(
                 a,
                 b,
-                [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+                [
+                    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+                ]
             ),
             _ => unreachable_unchecked(),
         }
@@ -13180,37 +13236,51 @@ pub fn vextq_p8<const N: i32>(a: poly8x16_t, b: poly8x16_t) -> poly8x16_t {
             9 => simd_shuffle!(
                 a,
                 b,
-                [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+                [
+                    9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+                ]
             ),
             10 => simd_shuffle!(
                 a,
                 b,
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+                [
+                    10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
+                ]
             ),
             11 => simd_shuffle!(
                 a,
                 b,
-                [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+                [
+                    11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
+                ]
             ),
             12 => simd_shuffle!(
                 a,
                 b,
-                [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+                [
+                    12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+                ]
             ),
             13 => simd_shuffle!(
                 a,
                 b,
-                [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+                [
+                    13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28
+                ]
             ),
             14 => simd_shuffle!(
                 a,
                 b,
-                [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+                [
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+                ]
             ),
             15 => simd_shuffle!(
                 a,
                 b,
-                [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+                [
+                    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+                ]
             ),
             _ => unreachable_unchecked(),
         }
@@ -19906,14 +19976,7 @@ pub unsafe fn vld2q_s32(a: *const i32) -> int32x4x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2_f32(a: *const f32) -> float32x2x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v2f32.p0"
-        )]
-        fn _vld2_f32(ptr: *const float32x2_t) -> float32x2x2_t;
-    }
-    _vld2_f32(a as _)
+    crate::core_arch::macros::deinterleaving_load!(f32, 2, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2q_f32)"]
@@ -19925,14 +19988,7 @@ pub unsafe fn vld2_f32(a: *const f32) -> float32x2x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2q_f32(a: *const f32) -> float32x4x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v4f32.p0"
-        )]
-        fn _vld2q_f32(ptr: *const float32x4_t) -> float32x4x2_t;
-    }
-    _vld2q_f32(a as _)
+    crate::core_arch::macros::deinterleaving_load!(f32, 4, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2_s8)"]
@@ -19944,14 +20000,7 @@ pub unsafe fn vld2q_f32(a: *const f32) -> float32x4x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2_s8(a: *const i8) -> int8x8x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v8i8.p0"
-        )]
-        fn _vld2_s8(ptr: *const int8x8_t) -> int8x8x2_t;
-    }
-    _vld2_s8(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i8, 8, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2q_s8)"]
@@ -19963,33 +20012,20 @@ pub unsafe fn vld2_s8(a: *const i8) -> int8x8x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2q_s8(a: *const i8) -> int8x16x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v16i8.p0"
-        )]
-        fn _vld2q_s8(ptr: *const int8x16_t) -> int8x16x2_t;
-    }
-    _vld2q_s8(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i8, 16, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2_s16)"]
 #[doc = "## Safety"]
 #[doc = "  * Neon intrinsic unsafe"]
-#[inline(always)]
+// #[inline(always)]
+#[unsafe(no_mangle)]
 #[target_feature(enable = "neon")]
 #[cfg(not(target_arch = "arm"))]
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2_s16(a: *const i16) -> int16x4x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v4i16.p0"
-        )]
-        fn _vld2_s16(ptr: *const int16x4_t) -> int16x4x2_t;
-    }
-    _vld2_s16(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i16, 4, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2q_s16)"]
@@ -20001,14 +20037,7 @@ pub unsafe fn vld2_s16(a: *const i16) -> int16x4x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2q_s16(a: *const i16) -> int16x8x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v8i16.p0"
-        )]
-        fn _vld2q_s16(ptr: *const int16x8_t) -> int16x8x2_t;
-    }
-    _vld2q_s16(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i16, 8, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2_s32)"]
@@ -20020,14 +20049,7 @@ pub unsafe fn vld2q_s16(a: *const i16) -> int16x8x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2_s32(a: *const i32) -> int32x2x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v2i32.p0"
-        )]
-        fn _vld2_s32(ptr: *const int32x2_t) -> int32x2x2_t;
-    }
-    _vld2_s32(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i32, 2, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2q_s32)"]
@@ -20039,14 +20061,7 @@ pub unsafe fn vld2_s32(a: *const i32) -> int32x2x2_t {
 #[stable(feature = "neon_intrinsics", since = "1.59.0")]
 #[cfg_attr(test, assert_instr(ld2))]
 pub unsafe fn vld2q_s32(a: *const i32) -> int32x4x2_t {
-    unsafe extern "unadjusted" {
-        #[cfg_attr(
-            any(target_arch = "aarch64", target_arch = "arm64ec"),
-            link_name = "llvm.aarch64.neon.ld2.v4i32.p0"
-        )]
-        fn _vld2q_s32(ptr: *const int32x4_t) -> int32x4x2_t;
-    }
-    _vld2q_s32(a as _)
+    crate::core_arch::macros::deinterleaving_load!(i32, 4, 2, a)
 }
 #[doc = "Load multiple 2-element structures to two registers"]
 #[doc = "[Arm's documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vld2_lane_f16)"]
@@ -20123,7 +20138,7 @@ pub unsafe fn vld2_lane_f16<const LANE: i32>(a: *const f16, b: float16x4x2_t) ->
             link_name = "llvm.aarch64.neon.ld2lane.v4f16.p0"
         )]
         fn _vld2_lane_f16(a: float16x4_t, b: float16x4_t, n: i64, ptr: *const f16)
-            -> float16x4x2_t;
+        -> float16x4x2_t;
     }
     _vld2_lane_f16(b.0, b.1, LANE as i64, a as _)
 }
@@ -20197,7 +20212,7 @@ pub unsafe fn vld2q_lane_f32<const LANE: i32>(a: *const f32, b: float32x4x2_t) -
             link_name = "llvm.aarch64.neon.ld2lane.v4f32.p0"
         )]
         fn _vld2q_lane_f32(a: float32x4_t, b: float32x4_t, n: i64, ptr: *const i8)
-            -> float32x4x2_t;
+        -> float32x4x2_t;
     }
     _vld2q_lane_f32(b.0, b.1, LANE as i64, a as _)
 }
@@ -20417,7 +20432,7 @@ pub unsafe fn vld2_lane_s8<const LANE: i32>(a: *const i8, b: int8x8x2_t) -> int8
     unsafe extern "unadjusted" {
         #[cfg_attr(target_arch = "arm", link_name = "llvm.arm.neon.vld2lane.v8i8.p0")]
         fn _vld2_lane_s8(ptr: *const i8, a: int8x8_t, b: int8x8_t, n: i32, size: i32)
-            -> int8x8x2_t;
+        -> int8x8x2_t;
     }
     _vld2_lane_s8(a as _, b.0, b.1, LANE, 1)
 }
@@ -60015,7 +60030,7 @@ pub fn vsha256su1q_u32(tw0_3: uint32x4_t, w8_11: uint32x4_t, w12_15: uint32x4_t)
         )]
         #[cfg_attr(target_arch = "arm", link_name = "llvm.arm.neon.sha256su1")]
         fn _vsha256su1q_u32(tw0_3: uint32x4_t, w8_11: uint32x4_t, w12_15: uint32x4_t)
-            -> uint32x4_t;
+        -> uint32x4_t;
     }
     unsafe { _vsha256su1q_u32(tw0_3, w8_11, w12_15) }
 }
